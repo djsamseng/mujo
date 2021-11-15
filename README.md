@@ -7,10 +7,7 @@
 
 To call `env.render(w, h)` then:
 ```bash
-$ LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLEW.so python examples/disco_fetch.py
-``` 
-
-To call `env.sim.render(w, h)` then:
-```bash
-$ unset LD_PRELOAD
+$ ./run.sh
+$ ./run.sh viewer
+$ ./run.sh render
 ```

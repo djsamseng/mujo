@@ -39,10 +39,10 @@
     <worldbody>
         <light directional='false' diffuse='.7 .7 .7' specular='0.03 0.03 0.03' pos='-1 -1.0 4.0' dir='1 1.0 -4'/>
         <geom name='ground' size="1.5 1.5 0.25" pos="0 0 -1" type="plane" contype="1" conaffinity="0" material="groundplane" />
-        <camera name="fixed" pos="0 -0.7 0.7" quat="0.92388 0.382683 0 0" />
+            
         <!-- Camera for the VIL paper -->
         <camera name="vil_camera" pos="0 -1.2 1.2" quat="0.92388 0.382683 0 0" />
- 
+        
         <!-- ======= TABLE ======= -->
         <body name="table">
             <!-- <geom size="0.5 0.5 0.025" type="plane" material="table2d" /> --> <!-- Plane has better contacts -->
@@ -60,7 +60,12 @@
         </body>
 
         <!-- ======= HAND ======= -->
-        <body name="forearm" pos="0 -0.7 0.2" euler="-1.57 0 3.14">
+        <!-- pos="left/right forward/back up/down"-->
+        <!-- euler="movearmup/down turnarmtoright/left twistpalm"-->
+        <body name="forearm" pos="0 -1.0 0.3" euler="-1.57 0 3.14">
+            <!-- camera pos="left/right up/down forward/back" 
+                        axisangle="how_much_to_rotate_around_axis_forward/back rotate_around_axis_up/down rotate_around_axis_left/right radians_to_rotate"-->
+            <camera name="forearm_camera" mode="trackcom" pos="0 0.8 -1" axisangle="0 1 0.2 3.14"/>
             <inertial pos="0.001 -0.002 0.29" quat="0.982037 -0.0160006 0 -0.188007" mass="4" diaginertia="0.01 0.01 0.0075" />
             <joint name="ARTx" pos="0 0 0" axis="1 0 0" type="slide" range="-0.25 0.25" damping="20" />
             <joint name="ARTy" pos="0 0 0" axis="0 1 0" type="slide" range="-0.2 0.2" damping="20" />
